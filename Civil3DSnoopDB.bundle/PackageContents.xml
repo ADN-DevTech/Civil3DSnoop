@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage SchemaVersion="1.0" AutodeskProduct="AutoCAD" Name="Civil 3D Snoop DB" Description="Inspect Civil 3D database" AppVersion="1.0.0" FriendlyVersion="1.0.0" ProductType="Application" SupportedLocales="Enu" AppNameSpace="appstore.exchange.autodesk.com">
+  <RuntimeRequirements OS="Win32|Win64" Platform="Civil3D" />
+  <CompanyDetails Name="Autodesk" Email="augusto.goncalves@autodesk.com" />
+  <Components Description="R18 parts">
+    <RuntimeRequirements OS="Win32|Win64" Platform="Civil3D" SeriesMin="R18.2" SeriesMax="R18.2" />
+    <ComponentEntry AppName="Civil3DSnoopDB" Version="1.0.0" ModuleName="./Contents/R18/SnoopCivil3DObjects.dll" AppDescription="R18 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
+  </Components>
+  <Components Description="R19 parts">
+    <RuntimeRequirements OS="Win32|Win64" Platform="Civil3D" SeriesMin="R19.0" SeriesMax="R20.0" />
+    <ComponentEntry AppName="Civil3DSnoopDB" Version="1.0.0" ModuleName="./Contents/R19/SnoopCivil3DObjects.dll" AppDescription="R19/R20 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
+  </Components>
+</ApplicationPackage>
