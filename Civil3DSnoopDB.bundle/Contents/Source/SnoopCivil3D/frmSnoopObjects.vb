@@ -1,5 +1,5 @@
 ﻿''//
-''// (C) Copyright 2006-2013 by Autodesk, Inc.
+''// (C) Copyright 2006-2015 by Autodesk, Inc.
 ''//
 ''//
 ''//
@@ -46,10 +46,13 @@ Public Class frmSnoopObjects
   Private Const stringCollection As String = "[Collection]"
   Private Const stringEmpty As String = "[Empty]"
 
+  Sub New()
+    ' TODO: Complete member initialization 
+  End Sub
+
   Public Sub frmCorridors_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
     lvwProperties.FullRowSelect = True
     ListRootEntities()
-    CheckIsLaunching()
 
     ' some properties may not work as expected
     ' this is the list to ignore (April 2013)
@@ -218,12 +221,22 @@ Public Class frmSnoopObjects
   End Sub
 
   Private _trans As Transaction
+  Private _db As Database
+
+  Public Sub New(db As Database)
+
+    ' This call is required by the designer.
+    InitializeComponent()
+
+    ' Add any initialization after the InitializeComponent() call.
+    _db = db
+  End Sub
 
   Private Sub ListRootEntities()
-    Dim db As Database = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Database
+    'Dim db As Database = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Database
 
-    _trans = db.TransactionManager.StartTransaction()
-    Dim civilDoc As CivilDocument = CivilApplication.ActiveDocument
+    _trans = _db.TransactionManager.StartTransaction()
+    Dim civilDoc As CivilDocument = CivilDocument.GetCivilDocument(_db) 'CivilApplication.ActiveDocument
 
     ListStyles(_trans, civilDoc)
     ListAlignments(_trans, civilDoc)
@@ -369,43 +382,6 @@ Public Class frmSnoopObjects
     _trans.Dispose()
   End Sub
 
-#Region "Registry Functions"
-
-  Public Sub CheckIsLaunching()
-    Dim acadAppKey As Microsoft.Win32.RegistryKey = GetAcadAppKey(False)
-    Dim subKeys As [String]() = acadAppKey.GetSubKeyNames()
-    For Each subKey As [String] In subKeys
-      If subKey.Equals("Civil3DSnoopDB") Then
-        chkLaunchWithC3D.Checked = True
-      End If
-    Next
-    'now control changes
-    AddHandler Me.chkLaunchWithC3D.CheckedChanged, AddressOf chkLaunchWithC3D_CheckedChanged
-  End Sub
-
-  Private Sub chkLaunchWithC3D_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkLaunchWithC3D.CheckedChanged
-    Dim acadAppKey As Microsoft.Win32.RegistryKey = GetAcadAppKey(True)
-    If chkLaunchWithC3D.Checked Then
-      Dim curAssemblyPath As String = System.Reflection.Assembly.GetExecutingAssembly().Location
-      Dim acadAppC3DInspectorKey As Microsoft.Win32.RegistryKey = acadAppKey.CreateSubKey("Civil3DSnoopDB")
-      acadAppC3DInspectorKey.SetValue("DESCRIPTION", "Civil3D Snoop Database", Microsoft.Win32.RegistryValueKind.[String])
-      acadAppC3DInspectorKey.SetValue("LOADCTRLS", 14, Microsoft.Win32.RegistryValueKind.DWord)
-      acadAppC3DInspectorKey.SetValue("LOADER", curAssemblyPath, Microsoft.Win32.RegistryValueKind.[String])
-      acadAppC3DInspectorKey.SetValue("MANAGED", 1, Microsoft.Win32.RegistryValueKind.DWord)
-    Else
-      acadAppKey.DeleteSubKeyTree("Civil3DSnoopDB")
-    End If
-    acadAppKey.Close()
-  End Sub
-
-  Private Function GetAcadAppKey(ByVal forWrite As Boolean) As Microsoft.Win32.RegistryKey
-    Dim acadKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey _
-                                                 (Autodesk.AutoCAD.DatabaseServices.HostApplicationServices.Current.UserRegistryProductRootKey)
-    Return acadKey.OpenSubKey("Applications", forWrite)
-  End Function
-
-#End Region
-
   Private Sub btnSelectObject_Click(sender As System.Object, e As System.EventArgs) Handles btnSelectObject.Click
     Dim ed As Editor = AcApplication.DocumentManager.MdiActiveDocument.Editor
     Using userIt As EditorUserInteraction = ed.StartUserInteraction(Me.Handle)
@@ -428,5 +404,16 @@ Public Class frmSnoopObjects
     End If
     treObjects.SelectedNode = AddTreeNode(selectionNode.Nodes, GetNameOrType(obj), obj)
     selectionNode.ExpandAll()
+  End Sub
+
+  Private Sub btnSelectAnotherFile_Click(sender As Object, e As EventArgs) Handles btnSelectAnotherFile.Click
+    Dim selFile As New Autodesk.AutoCAD.Windows.OpenFileDialog("Select file to inspect", Nothing, "dwg;", "Snoop Civil 3D Database", Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.NoUrls And Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.DoNotTransferRemoteFiles)
+    If (selFile.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+      Using db As New Database(False, True)
+        db.ReadDwgFile(selFile.Filename, FileOpenMode.OpenForReadAndAllShare, True, String.Empty)
+        Dim frm As New frmSnoopObjects(db)
+        Autodesk.AutoCAD.ApplicationServices.Application.ShowModalDialog(frm)
+      End Using
+    End If
   End Sub
 End Class

@@ -27,8 +27,8 @@ Partial Class frmSnoopObjects
     Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
     Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
     Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-    Me.chkLaunchWithC3D = New System.Windows.Forms.CheckBox()
     Me.btnSelectObject = New System.Windows.Forms.Button()
+    Me.btnSelectAnotherFile = New System.Windows.Forms.Button()
     Me.SuspendLayout()
     '
     'treObjects
@@ -66,18 +66,6 @@ Partial Class frmSnoopObjects
     '
     Me.ColumnHeader3.Text = "Value"
     '
-    'chkLaunchWithC3D
-    '
-    Me.chkLaunchWithC3D.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-    Me.chkLaunchWithC3D.AutoSize = True
-    Me.chkLaunchWithC3D.Location = New System.Drawing.Point(13, 502)
-    Me.chkLaunchWithC3D.Name = "chkLaunchWithC3D"
-    Me.chkLaunchWithC3D.Size = New System.Drawing.Size(171, 17)
-    Me.chkLaunchWithC3D.TabIndex = 2
-    Me.chkLaunchWithC3D.Text = "Launch with Civil3D (Autoload)"
-    Me.chkLaunchWithC3D.UseVisualStyleBackColor = True
-    Me.chkLaunchWithC3D.Visible = False
-    '
     'btnSelectObject
     '
     Me.btnSelectObject.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -88,13 +76,23 @@ Partial Class frmSnoopObjects
     Me.btnSelectObject.Text = "Select object"
     Me.btnSelectObject.UseVisualStyleBackColor = True
     '
+    'btnSelectAnotherFile
+    '
+    Me.btnSelectAnotherFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+    Me.btnSelectAnotherFile.Location = New System.Drawing.Point(13, 496)
+    Me.btnSelectAnotherFile.Name = "btnSelectAnotherFile"
+    Me.btnSelectAnotherFile.Size = New System.Drawing.Size(143, 23)
+    Me.btnSelectAnotherFile.TabIndex = 4
+    Me.btnSelectAnotherFile.Text = "Select another file..."
+    Me.btnSelectAnotherFile.UseVisualStyleBackColor = True
+    '
     'frmSnoopObjects
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.ClientSize = New System.Drawing.Size(715, 531)
+    Me.Controls.Add(Me.btnSelectAnotherFile)
     Me.Controls.Add(Me.btnSelectObject)
-    Me.Controls.Add(Me.chkLaunchWithC3D)
     Me.Controls.Add(Me.lvwProperties)
     Me.Controls.Add(Me.treObjects)
     Me.MaximizeBox = False
@@ -103,7 +101,6 @@ Partial Class frmSnoopObjects
     Me.ShowInTaskbar = False
     Me.Text = "Snoop Civil 3D 2014 Database"
     Me.ResumeLayout(False)
-    Me.PerformLayout()
 
   End Sub
   Friend WithEvents treObjects As System.Windows.Forms.TreeView
@@ -111,6 +108,6 @@ Partial Class frmSnoopObjects
   Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
   Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
   Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
-  Friend WithEvents chkLaunchWithC3D As System.Windows.Forms.CheckBox
   Friend WithEvents btnSelectObject As System.Windows.Forms.Button
+  Friend WithEvents btnSelectAnotherFile As System.Windows.Forms.Button
 End Class

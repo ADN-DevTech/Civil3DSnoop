@@ -1,5 +1,5 @@
 ﻿''//
-''// (C) Copyright 2006-2013 by Autodesk, Inc.
+''// (C) Copyright 2006-2015 by Autodesk, Inc.
 ''//
 ''//
 ''//
@@ -37,40 +37,40 @@ Imports Autodesk.AutoCAD.Windows
 <Assembly: ExtensionApplication(GetType(SnoopApplication))> 
 
 Public Class SnoopCommands
-    <CommandMethod("snoopCivil3DDB")> _
-    Public Shared Sub CommandSnoopCivil3DDatabase()
-        Dim frm As New frmSnoopObjects()
-        Application.ShowModalDialog(frm)
-    End Sub
+  <CommandMethod("snoopCivil3DDB")> _
+  Public Shared Sub CommandSnoopCivil3DDatabase()
+    Dim frm As New frmSnoopObjects(Application.DocumentManager.MdiActiveDocument.Database)
+    Application.ShowModalDialog(frm)
+  End Sub
 End Class
 
 #Region "IExtensionApplication implementation"
 
 Public Class SnoopApplication
-    Implements IExtensionApplication
+  Implements IExtensionApplication
 
-    Public Sub Initialize() Implements Autodesk.AutoCAD.Runtime.IExtensionApplication.Initialize
-        AddMenuItem()
-    End Sub
+  Public Sub Initialize() Implements Autodesk.AutoCAD.Runtime.IExtensionApplication.Initialize
+    AddMenuItem()
+  End Sub
 
-    Public Sub Terminate() Implements Autodesk.AutoCAD.Runtime.IExtensionApplication.Terminate
+  Public Sub Terminate() Implements Autodesk.AutoCAD.Runtime.IExtensionApplication.Terminate
 
-    End Sub
+  End Sub
 
-    Private Sub AddMenuItem()
-        Dim mnuSnoopCivil3DMenu As New ContextMenuExtension
-        mnuSnoopCivil3DMenu.Title = "Snoop Civil3D"
+  Private Sub AddMenuItem()
+    Dim mnuSnoopCivil3DMenu As New ContextMenuExtension
+    mnuSnoopCivil3DMenu.Title = "Snoop Civil3D"
 
-        Dim mnuSnoopDB As New MenuItem("Snoop Database")
-        AddHandler mnuSnoopDB.Click, AddressOf mnuSnoopDB_Click
-        mnuSnoopCivil3DMenu.MenuItems.Add(mnuSnoopDB)
+    Dim mnuSnoopDB As New MenuItem("Snoop Database")
+    AddHandler mnuSnoopDB.Click, AddressOf mnuSnoopDB_Click
+    mnuSnoopCivil3DMenu.MenuItems.Add(mnuSnoopDB)
 
-        Application.AddDefaultContextMenuExtension(mnuSnoopCivil3DMenu)
-    End Sub
+    Application.AddDefaultContextMenuExtension(mnuSnoopCivil3DMenu)
+  End Sub
 
-    Private Sub mnuSnoopDB_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Application.DocumentManager.MdiActiveDocument.SendStringToExecute("snoopCivil3DDB ", True, False, True)
-    End Sub
+  Private Sub mnuSnoopDB_Click(ByVal sender As Object, ByVal e As EventArgs)
+    Application.DocumentManager.MdiActiveDocument.SendStringToExecute("snoopCivil3DDB ", True, False, True)
+  End Sub
 
 End Class
 
