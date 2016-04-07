@@ -46,6 +46,9 @@ If you are using Vista or Windows 7, first check if the zip file
 needs to be unblocked. Right-click on the zip file and select
 "Properties". If you see an "Unblock" button, then click it. 
 
+If you do not "Unblock" the zip or the .dll for your release,
+AutoCAD will not load the plugin, and will not tell you about it.
+
 Usage
 -----
 Inside Civil 3D, right click, select Snoop Civil3D. The form will
