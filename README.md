@@ -26,8 +26,8 @@ The tool may stop working on some properties that cannot be reflected (using .NE
 
 ### Release History
 
-1.0	Original release
-1.1	New features, 2014 support
-1.2	Bundle format
-1.3 Support for additional drawing
-1.4 2017 support
+- 1.0	Original release
+- 1.1	New features, 2014 support
+- 1.2	Bundle format
+- 1.3 Support for additional drawing
+- 1.4 2017 support (September, 2016)
