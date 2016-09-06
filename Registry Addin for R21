@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Autodesk\AutoCAD\R21.0\ACAD-0000:409\Applications\SnoopDB]
+"Description" = "This uses .NET Reflection to list all properties of AutoCAD Civil 3D major objects."
+"LOADCTRLS"=dword:00000002
+"MANAGED"=dword:00000001
+"LOADER"="C:\\ProgramData\\Autodesk\\ApplicationPlugins\\Civil3DSnoopDB.bundle\\Contents\\R21\\SnoopCivil3DObjects.dll"
+
+[HKEY_CURRENT_USER\Software\Autodesk\AutoCAD\R21.0\ACAD-0000:409\Applications\SnoopDB\Commands]
+"snoopCivil3DDB" = "snoopCivil3DDB"
+
+[HKEY_CURRENT_USER\Software\Autodesk\AutoCAD\R21.0\ACAD-0000:409\Applications\SnoopDB\Groups]
+"SNOOP"="SNOOP"
