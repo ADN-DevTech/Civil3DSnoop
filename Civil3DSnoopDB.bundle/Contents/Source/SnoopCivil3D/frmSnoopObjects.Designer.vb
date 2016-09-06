@@ -99,7 +99,7 @@ Partial Class frmSnoopObjects
     Me.MinimizeBox = False
     Me.Name = "frmSnoopObjects"
     Me.ShowInTaskbar = False
-    Me.Text = "Snoop Civil 3D 2014 Database"
+    Me.Text = "Snoop Civil 3D Database"
     Me.ResumeLayout(False)
 
   End Sub

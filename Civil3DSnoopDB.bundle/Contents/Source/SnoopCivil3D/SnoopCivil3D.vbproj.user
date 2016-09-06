@@ -2,9 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>c:\program Files\Autodesk\Autodesk AutoCAD Civil 3D 2014\acad.exe</StartProgram>
+    <StartProgram>C:\Program Files\Autodesk\AutoCAD 2017\acad.exe</StartProgram>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>/ld "C:\Program Files\Autodesk\AutoCAD 2017\\AecBase.dbx" /p "&lt;&lt;C3D_Metric&gt;&gt;"  /product "C3D" /language "en-US"</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Program Files\Autodesk\AutoCAD 2017\;C:\Program Files\Autodesk\AutoCAD 2017\C3D\</ReferencePath>
   </PropertyGroup>
 </Project>
