@@ -3,7 +3,7 @@
   <CompanyDetails Name="Autodesk" Email="augusto.goncalves@autodesk.com" />
   <RuntimeRequirements OS="Win64" Platform="Civil3D" />
   <Components Description="R21 part">
-    <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R21.0" SeriesMax="R21.0" />
+    <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R21.0" SeriesMax="R22.0" />
     <ComponentEntry AppName="Civil3DSnoopDB" Version="1.1" ModuleName="./Contents/R21/SnoopCivil3DObjects.dll" AppDescription="R21 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
   </Components>
 </ApplicationPackage>
