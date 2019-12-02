@@ -13,7 +13,7 @@
     <AssemblyName>SnoopCivil3DObjects</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\R21\</OutputPath>
+    <OutputPath>..\..\R23.1\</OutputPath>
     <DocumentationFile>SnoopCivil3DObjects.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
@@ -51,23 +51,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="accoremgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD Civil 3D 2014\accoremgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD 2020\accoremgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acdbmgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD Civil 3D 2014\acdbmgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD 2020\acdbmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acmgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD Civil 3D 2014\acmgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD 2020\acmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="AecBaseMgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD Civil 3D 2014\AecBaseMgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD 2020\C3D\AecBaseMgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="AeccDbMgd">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD Civil 3D 2014\AeccDbMgd.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\Autodesk AutoCAD 2020\C3D\AeccDbMgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
