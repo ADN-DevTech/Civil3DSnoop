@@ -14,4 +14,8 @@
     <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R20.0" SeriesMax="R20.1" />
     <ComponentEntry AppName="Civil3DSnoopDB" Version="1.1" ModuleName="./Contents/R20/SnoopCivil3DObjects.dll" AppDescription="R20 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
   </Components>
+  <Components Description="R21 part">
+    <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R21.0" SeriesMax="R21.0" />
+    <ComponentEntry AppName="Civil3DSnoopDB" Version="1.0.0" ModuleName="./Contents/R21/SnoopCivil3DObjects.dll" AppDescription="R21 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
+  </Components>
 </ApplicationPackage>
