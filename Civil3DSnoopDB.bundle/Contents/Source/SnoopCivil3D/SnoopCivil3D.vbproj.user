@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>C:\Program Files\Autodesk\AutoCAD 2020\acad.exe</StartProgram>
+    <StartProgram>C:\Program Files\Autodesk\AutoCAD 2022\acad.exe</StartProgram>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <StartArguments>/ld "C:\Program Files\Autodesk\AutoCAD 2020\\AecBase.dbx" /p "&lt;&lt;C3D_Metric&gt;&gt;"  /product "C3D" /language "en-US"</StartArguments>
+    <StartArguments>/ld "C:\Program Files\Autodesk\AutoCAD 2022\\AecBase.dbx" /p "&lt;&lt;C3D_Metric&gt;&gt;"  /product "C3D" /language "en-US"</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
-    <ReferencePath>C:\Program Files\Autodesk\AutoCAD 2020\;C:\Program Files\Autodesk\AutoCAD 2020\C3D\</ReferencePath>
+    <ReferencePath>C:\Program Files\Autodesk\AutoCAD 2020\;C:\Program Files\Autodesk\AutoCAD 2022\C3D\</ReferencePath>
   </PropertyGroup>
 </Project>
