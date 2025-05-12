@@ -8,4 +8,9 @@
     <ComponentEntry AppName="Civil3DSnoopDB" Version="1.8" ModuleName="./Contents/net48/SnoopCivil3DObjects.dll" AppDescription="R24 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
   </Components>
 
+  <Components Description="R25 part">
+    <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R25.0" SeriesMax="R25.1" />
+    <ComponentEntry AppName="Civil3DSnoopDB" Version="1.8" ModuleName="./Contents/net8.0-windows/SnoopCivil3DObjects.dll" AppDescription="R25 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
+  </Components>
+
 </ApplicationPackage>

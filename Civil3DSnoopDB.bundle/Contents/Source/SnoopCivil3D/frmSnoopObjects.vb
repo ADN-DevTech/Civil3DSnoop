@@ -408,7 +408,7 @@ Public Class frmSnoopObjects
 
   Private Sub btnSelectAnotherFile_Click(sender As Object, e As EventArgs) Handles btnSelectAnotherFile.Click
     Dim selFile As New Autodesk.AutoCAD.Windows.OpenFileDialog("Select file to inspect", Nothing, "dwg;", "Snoop Civil 3D Database", Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.NoUrls And Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.DoNotTransferRemoteFiles)
-    If (selFile.ShowDialog() = Windows.Forms.DialogResult.OK) Then
+    If (selFile.ShowDialog() = DialogResult.OK) Then
       Using db As New Database(False, True)
         db.ReadDwgFile(selFile.Filename, FileOpenMode.OpenForReadAndAllShare, True, String.Empty)
         Dim frm As New frmSnoopObjects(db)

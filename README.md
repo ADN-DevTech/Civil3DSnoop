@@ -4,7 +4,7 @@ This tool uses .NET Reflection to list all properties of AutoCAD Civil 3D major 
 
 # Setup
 
-Open the [SnoopCivil3D.sln](Civil3DSnoopDB.bundle\Contents\Source\SnoopCivil3D\SnoopCivil3D.sln) on Visual Studio. Build the project in Release, the DLL should be placed at /Contents/net** folder. Copy the entire .bundle folder to <b>c:\Program Files\Autodesk\Autodesk\ApplicationPlugins</b> folder and launch Civil 3D.
+Open the [SnoopCivil3D.sln](Civil3DSnoopDB.bundle\Contents\Source\SnoopCivil3D\SnoopCivil3D.sln) on Visual Studio. Build the project in Release, the DLL should be placed at /Contents/net** folder. Copy the entire .bundle folder to <b>%AppData%\Autodesk\ApplicationPlugins</b> folder and launch Civil 3D.
 
 # Usage
 
@@ -34,3 +34,4 @@ The tool may stop working on some properties that cannot be reflected (using .NE
 - 1.5 2018 support
 - 1.6 2020 support
 - 1.7 2022 support
+- 1.8 .NET 8.0 support
