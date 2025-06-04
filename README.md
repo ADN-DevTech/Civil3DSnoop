@@ -15,7 +15,7 @@ Click on "Select another file" button to explore another file. This will not ope
 # Author
 
 This plugin was written by Augusto Goncalves [@augustomaia](http://www.twitter.com/augustomaia), member of the Autodesk Developer Technical Services team. 
-
+This plugin migrated to support NET8.0 by Madhukar Moogala, member of APS Team
 ### Limitations
 
 The tool uses Reflection to list the properties, so it may not work well for all properties. Most properties should work fine.
