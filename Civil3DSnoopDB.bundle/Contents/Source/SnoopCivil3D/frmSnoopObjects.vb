@@ -30,27 +30,28 @@
 ''// This Sample is written by "Autodesk Developer Network" (ADN) Team
 ''//
 
-Imports System.Windows.Forms
 Imports System.Reflection
-
-Imports Autodesk.AutoCAD.EditorInput
-Imports AcApplication = Autodesk.AutoCAD.ApplicationServices.Application
+Imports System.Runtime.Versioning
+Imports System.Windows.Forms
 Imports Autodesk.AutoCAD.DatabaseServices
-
+Imports Autodesk.AutoCAD.EditorInput
 Imports Autodesk.Civil.ApplicationServices
 Imports Autodesk.Civil.DatabaseServices.Styles
+Imports AcApplication = Autodesk.AutoCAD.ApplicationServices.Application
 
-
+<SupportedOSPlatform("Windows")>
 Public Class frmSnoopObjects
   Private Const stringEmptyCollection As String = "[Empty Collection]"
   Private Const stringCollection As String = "[Collection]"
   Private Const stringEmpty As String = "[Empty]"
 
-  Sub New()
-    ' TODO: Complete member initialization 
-  End Sub
+    Sub New()
+        ' TODO: Complete member initialization 
+        InitializeComponent()
 
-  Public Sub frmCorridors_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    End Sub
+
+    Public Sub frmCorridors_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
     lvwProperties.FullRowSelect = True
     ListRootEntities()
 
@@ -408,12 +409,12 @@ Public Class frmSnoopObjects
 
   Private Sub btnSelectAnotherFile_Click(sender As Object, e As EventArgs) Handles btnSelectAnotherFile.Click
     Dim selFile As New Autodesk.AutoCAD.Windows.OpenFileDialog("Select file to inspect", Nothing, "dwg;", "Snoop Civil 3D Database", Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.NoUrls And Autodesk.AutoCAD.Windows.OpenFileDialog.OpenFileDialogFlags.DoNotTransferRemoteFiles)
-    If (selFile.ShowDialog() = Windows.Forms.DialogResult.OK) Then
-      Using db As New Database(False, True)
-        db.ReadDwgFile(selFile.Filename, FileOpenMode.OpenForReadAndAllShare, True, String.Empty)
-        Dim frm As New frmSnoopObjects(db)
-        Autodesk.AutoCAD.ApplicationServices.Application.ShowModalDialog(frm)
-      End Using
-    End If
-  End Sub
+        If (selFile.ShowDialog() = DialogResult.OK) Then
+            Using db As New Database(False, True)
+                db.ReadDwgFile(selFile.Filename, FileOpenMode.OpenForReadAndAllShare, True, String.Empty)
+                Dim frm As New frmSnoopObjects(db)
+                Autodesk.AutoCAD.ApplicationServices.Application.ShowModalDialog(frm)
+            End Using
+        End If
+    End Sub
 End Class
