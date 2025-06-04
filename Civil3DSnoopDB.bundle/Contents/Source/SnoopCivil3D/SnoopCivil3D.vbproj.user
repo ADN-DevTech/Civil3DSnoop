@@ -9,9 +9,4 @@
   <PropertyGroup>
     <ReferencePath>C:\Program Files\Autodesk\AutoCAD 2020\;C:\Program Files\Autodesk\AutoCAD 2020\C3D\</ReferencePath>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Update="frmSnoopObjects.vb">
-      <SubType>Form</SubType>
-    </Compile>
-  </ItemGroup>
 </Project>

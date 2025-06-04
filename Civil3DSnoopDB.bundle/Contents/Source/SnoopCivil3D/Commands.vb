@@ -33,14 +33,12 @@
 Imports Autodesk.AutoCAD.Runtime
 Imports Autodesk.AutoCAD.ApplicationServices
 Imports Autodesk.AutoCAD.Windows
-Imports System.Runtime.Versioning
 
-<Assembly: ExtensionApplication(GetType(SnoopApplication))>
+<Assembly: ExtensionApplication(GetType(SnoopApplication))> 
 
-<SupportedOSPlatform("Windows")>
 Public Class SnoopCommands
-    <CommandMethod("SnoopCivil3DDB")>
-    Public Shared Sub CommandSnoopCivil3DDatabase()
+  <CommandMethod("snoopCivil3DDB")> _
+  Public Shared Sub CommandSnoopCivil3DDatabase()
     Dim frm As New frmSnoopObjects(Application.DocumentManager.MdiActiveDocument.Database)
     Application.ShowModalDialog(frm)
   End Sub

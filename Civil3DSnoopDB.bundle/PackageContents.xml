@@ -1,34 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ApplicationPackage SchemaVersion="1.0" AutodeskProduct="AutoCAD" 
-    Name="Civil 3D Snoop DB" 
-    Description="Inspect Civil 3D database" 
-    AppVersion="1.0.0" 
-    FriendlyVersion="1.0.0" 
-    ProductType="Application" 
-    SupportedLocales="Enu" 
-    AppNameSpace="appstore.exchange.autodesk.com" 
-    Author="Autodesk">
-
+<ApplicationPackage SchemaVersion="1.0" AutodeskProduct="AutoCAD" Name="Civil 3D Snoop DB" Description="Inspect Civil 3D database" AppVersion="1.0.0" FriendlyVersion="1.0.0" ProductType="Application" SupportedLocales="Enu" AppNameSpace="appstore.exchange.autodesk.com" Author="Autodesk">
   <CompanyDetails Name="Autodesk" Email="augusto.goncalves@autodesk.com" />
-  
-  <!-- Shared requirement -->
   <RuntimeRequirements OS="Win64" Platform="Civil3D" />
-
-  <!-- .NET Framework 4.8: Civil 3D 2021–2024 -->
-  <Components Description=".NET Framework 4.8 - Civil 3D 2021 to 2024">
-    <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R24.0" SeriesMax="R24.3" RuntimeVersion="4.8" />
-    <ComponentEntry AppName="Civil3DSnoopDB" Version="1.6" 
-      ModuleName="./Contents/Net48/SnoopCivil3D.dll" 
-      AppDescription="Civil 3D 2021-2024 module (.NET Framework 4.8)" 
-      LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
-  </Components>
-
-  <!-- .NET 8.0: Civil 3D 2025–2026 -->
-  <Components Description=".NET 8.0 - Civil 3D 2025 to 2026">
-    <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R25.0" SeriesMax="R25.1" RuntimeVersion="8.0" />
-    <ComponentEntry AppName="Civil3DSnoopDB" Version="1.6" 
-      ModuleName="./Contents/Net80/SnoopCivil3D.dll" 
-      AppDescription="Civil 3D 2025-2026 module (.NET 8.0)" 
-      LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
+  <Components Description="R21 part">
+    <RuntimeRequirements OS="Win64" Platform="Civil3D" SeriesMin="R21.0" SeriesMax="R23.1" />
+    <ComponentEntry AppName="Civil3DSnoopDB" Version="1.6" ModuleName="./Contents/R23.1/SnoopCivil3DObjects.dll" AppDescription="R23.1 module" LoadOnAppearance="True" LoadOnAutoCADStartup="True" />
   </Components>
 </ApplicationPackage>
